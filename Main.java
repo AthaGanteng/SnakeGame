@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
         System.out.println("  Memulai Snake Game...");
-
+        
         try {
             GameController controller = new GameController();
             controller.startGame();

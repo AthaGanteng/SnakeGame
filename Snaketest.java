@@ -83,7 +83,7 @@ public class SnakeTest {
     public void testSnakeNoSelfCollisionInitially() {
         assertFalse(snake.isSelfCollision(), "Tidak boleh ada self-collision di awal");
     }
-
+    
     @Test
     public void testSnakeOccupiesStartPosition() {
         assertTrue(snake.occupies(10, 10), "Ular harus occupies posisi kepalanya");

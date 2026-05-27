@@ -6,7 +6,7 @@ public class InputHandler {
     public InputHandler() {
         this.scanner = new Scanner(System.in);
     }
-
+    
     public char readInput() {
         try {
             if (scanner.hasNextLine()) {

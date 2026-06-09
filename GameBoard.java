@@ -14,9 +14,9 @@ public class GameBoard {
         this.grid = new char[height][width];
     }
 
-    public void render(Snake snake, Apple apple, int score, int highScore) {
+    public void render(Snake snake, Apple apple, GoldenApple goldenApple, int score, int highScore) {
         clearGrid();
-        placeEntities(snake, apple);
+        placeEntities(snake, apple, goldenApple);
         printGrid(score, highScore);
     }
 
@@ -34,11 +34,17 @@ public class GameBoard {
         }
     }
 
-    private void placeEntities(Snake snake, Apple apple) {
+    private void placeEntities(Snake snake, Apple apple, GoldenApple goldenApple) {
         int ax = apple.getX();
         int ay = apple.getY();
         if (inBounds(ax, ay)) {
             grid[ay][ax] = apple.render();
+        }
+
+        int gx = goldenApple.getX();
+        int gy = goldenApple.getY();
+        if (inBounds(gx, gy)) {
+            grid[gy][gx] = goldenApple.render();
         }
 
         for (int[] segment : snake.getBody()) {
@@ -76,6 +82,7 @@ public class GameBoard {
 
         System.out.println();
         System.out.println("  Kontrol: W=Atas  S=Bawah  A=Kiri  D=Kanan  Q=Quit");
+        System.out.println("  @ = Apple (10 poin)  $ = Golden Apple (20 poin)");
     }
 
     private boolean inBounds(int x, int y) {
@@ -104,25 +111,21 @@ public class GameBoard {
         System.out.flush();
         System.out.println();
         System.out.println("  ╔════════════════════════════════════╗");
-        System.out.println("  ║          SNAKE  GAME  OOP          ║");
+        System.out.println("  ║       SNAKE  GAME  OOP  v2.0       ║");
         System.out.println("  ║     Final Project PBO - Java       ║");
         System.out.println("  ╠════════════════════════════════════╣");
         System.out.println("  ║  Kontrol:                          ║");
         System.out.println("  ║    W / S / A / D  = Gerak Ular     ║");
-        System.out.println("  ║    Q              = Keluar Game     ║");
+        System.out.println("  ║    Q              = Keluar Game    ║");
         System.out.println("  ║                                    ║");
-        System.out.println("  ║  Ular makan @ = bertambah panjang  ║");
+        System.out.println("  ║  @ = Apple biasa  (10 poin)        ║");
+        System.out.println("  ║  $ = Golden Apple (20 poin)        ║");
         System.out.println("  ║  Nabrak dinding/tubuh = Game Over  ║");
         System.out.println("  ╠════════════════════════════════════╣");
         System.out.println("  ║  Tekan ENTER untuk mulai...        ║");
         System.out.println("  ╚════════════════════════════════════╝");
     }
 
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
+    public int getWidth()  { return width; }
+    public int getHeight() { return height; }
 }

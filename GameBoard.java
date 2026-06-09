@@ -109,7 +109,7 @@ public class GameBoard {
         System.out.println("  ╠════════════════════════════════════╣");
         System.out.println("  ║  Kontrol:                          ║");
         System.out.println("  ║    W / S / A / D  = Gerak Ular     ║");
-        System.out.println("  ║    Q              = Keluar Game     ║");
+        System.out.println("  ║    Q              = Keluar Game    ║");
         System.out.println("  ║                                    ║");
         System.out.println("  ║  Ular makan @ = bertambah panjang  ║");
         System.out.println("  ║  Nabrak dinding/tubuh = Game Over  ║");
